@@ -15,8 +15,7 @@ async function snapshot() {
     const csv = list
       .map((x) => `${x["owner"]},${x["total_amount"]}`)
       .join("\n");
-
-    await fs.writeFile(path, csv);
+    await fs.writeFile(path, "Address,Amount\n" + csv);
     console.log("Snapshot saved successfully.");
   } catch (e) {
     console.error("An error occurred:", e);
